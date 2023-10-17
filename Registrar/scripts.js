@@ -18,20 +18,20 @@ document.addEventListener('DOMContentLoaded', function () {
         const username = document.getElementById('logar').value;
         const password = document.getElementById('passw').value;
 
-        // Verifique se os campos foram preenchidos
+        // Verifica se os campos foram preenchidos
         if (!username || !password) {
             alert('Por favor, preencha todos os campos.');
             return;
         }
 
-        // Verifique se o nome de usuário já existe no localStorage
+        // Verifica se o nome de usuário já existe no localStorage
         const users = JSON.parse(localStorage.getItem('users')) || {};
         if (users[username]) {
             alert('Nome de usuário já existe. Escolha outro.');
             return;
         }
 
-        // Registre o usuário no localStorage
+        // Registra o usuário no localStorage
         users[username] = password;
         localStorage.setItem('users', JSON.stringify(users));
 

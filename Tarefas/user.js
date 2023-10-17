@@ -9,13 +9,13 @@ document.addEventListener('DOMContentLoaded', function () {
         window.location.href = '../Registrar/index.html';
     }
 
-    // Adicione um evento de clique ao botão de logout
+    // Adiciona o evento de clique ao botão de logout
     logoutButton.addEventListener('click', function () {
         localStorage.removeItem('loggedInUser');
         window.location.href = '../home.html';
     });
 
-    // Adicione um evento de clique ao botão de editar tarefa
+    // Adiciona o evento de clique ao botão de editar tarefa
     taskList.addEventListener('click', function (event) {
         if (event.target.tagName === 'BUTTON' && event.target.classList.contains('edit-button')) {
             const taskId = event.target.getAttribute('data-id');
@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 
-    // Adicione um evento de clique ao botão de salvar edição de tarefa
+    // Adiciona o evento de clique ao botão de salvar edição de tarefa
     taskList.addEventListener('click', function (event) {
         if (event.target.tagName === 'BUTTON' && event.target.classList.contains('save-button')) {
             const taskId = event.target.getAttribute('data-id');
@@ -31,14 +31,14 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 
-    // Adicione um evento de clique ao botão de cancelar edição de tarefa
+    // Adiciona o evento de clique ao botão de cancelar edição de tarefa
     taskList.addEventListener('click', function (event) {
         if (event.target.tagName === 'BUTTON' && event.target.classList.contains('cancel-button')) {
             loadTasks(); // Carregue as tarefas para cancelar a edição
         }
     });
 
-    // Adicione um evento de clique ao botão de excluir tarefa
+    // Adiciona o evento de clique ao botão de excluir tarefa
     taskList.addEventListener('click', function (event) {
         if (event.target.tagName === 'BUTTON' && event.target.classList.contains('delete-button')) {
             const taskId = event.target.getAttribute('data-id');
@@ -50,7 +50,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const userTasks = JSON.parse(localStorage.getItem(loggedInUser)) || [];
         const taskItem = userTasks[taskId];
 
-        // Crie elementos de input para editar a tarefa
+        // Cria elementos de input para editar a tarefa
         const editTaskName = document.createElement('input');
         editTaskName.value = taskItem.name;
         const editTaskDescription = document.createElement('input');
@@ -59,14 +59,14 @@ document.addEventListener('DOMContentLoaded', function () {
         editTaskDueDate.type = 'date';
         editTaskDueDate.value = taskItem.dueDate;
 
-        // Substitua o item da lista pela edição
+        // Substitue o item da lista pela edição
         const listItem = taskList.children[taskId];
         listItem.innerHTML = '';
         listItem.appendChild(editTaskName);
         listItem.appendChild(editTaskDescription);
         listItem.appendChild(editTaskDueDate);
 
-        // Adicione botões para salvar ou cancelar a edição
+        // Adiciona botões para salvar ou cancelar a edição
         const saveButton = document.createElement('button');
         saveButton.classList.add('save-button');
         saveButton.setAttribute('data-id', taskId);
@@ -98,14 +98,14 @@ document.addEventListener('DOMContentLoaded', function () {
         userTasks[taskId].dueDate = editedTaskDueDate;
 
         localStorage.setItem(loggedInUser, JSON.stringify(userTasks));
-        loadTasks(); // Atualize a lista de tarefas
+        loadTasks(); // Atualiza a lista de tarefas
     }
 
     function deleteTask(taskId) {
         const userTasks = JSON.parse(localStorage.getItem(loggedInUser)) || [];
         userTasks.splice(taskId, 1); // Remova a tarefa pelo índice
         localStorage.setItem(loggedInUser, JSON.stringify(userTasks));
-        loadTasks(); // Atualize a lista de tarefas
+        loadTasks(); // Atualiza a lista de tarefas
     }
 
     function clearTaskForm() {
@@ -115,10 +115,10 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     function loadTasks() {
-        taskList.innerHTML = ''; // Limpe a lista de tarefas
+        taskList.innerHTML = ''; // Limpa a lista de tarefas
         const userTasks = JSON.parse(localStorage.getItem(loggedInUser)) || [];
 
-        // Ordene as tarefas por prazo
+        // Ordena as tarefas por prazo
         userTasks.sort((a, b) => (a.dueDate > b.dueDate) ? 1 : -1);
 
         userTasks.forEach((task, index) => {
@@ -165,5 +165,5 @@ document.addEventListener('DOMContentLoaded', function () {
         loadTasks();
     });
 
-    loadTasks(); // Carregue as tarefas iniciais
+    loadTasks(); // Carregua as tarefas iniciais
 });
