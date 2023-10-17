@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
+    <title>Projeto Final</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <form>   
+        
+        <div class="main-register">
+                    <div class="left-login">
+                        <h1>Ada Tech</h1>
+                        <img src="https://cbissn.ibict.br/images/phocagallery/galeria2/thumbs/phoca_thumb_l_image03_grd.png" class="left-login-image">
+                    </div>
+                    <div class="right-login">
+                        <div class="card-login">
+                            <h1>Registro</h1>
+                            <div class="textfield">
+                                <label for="usuario" class="lab1" id="lab1">Usuário:</label>
+                                <input type="text" name="logar" placeholder="Usuário..."  id="logar">
+                            </div>
+                          
+                            <div class="textfield">
+                                <label for="senha" class="lab3" id="lab3">Senha:</label>
+                                <input type="password" name="senha" placeholder="Senha..." id="passw">
+                                <div class="botao-ver">
+                                    <i class="bi bi-eye-fill" id="btn-eye" onclick="mostrarSenha()"></i>
+                            </div>
+                            </div>
+                            <button class="btn-login" id="enviar" type="submit" name="cadastrar">Criar</button>
+                            <div class="esqueci">
+                                <a href="../Logar/index.html">Logar</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </div>
+
+    
+    </form>
+
+    <script src="scripts.js"></script>
+
+</body>
+</html>
